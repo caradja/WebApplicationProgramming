@@ -18,6 +18,10 @@ import streamlit as st
 from PIL import Image
 
 # colnames= {c:c for c in list(df)}
+# Title
+image = Image.open('KDT-JU.png')
+st.image(image)
+st.title("Partner search")
 
 # Select country
 countries = ['ES', 'FR', 'DE']
