@@ -21,7 +21,7 @@ from PIL import Image
 logo = Image.open('logo.jpg')
 
 # Resize the logo image to a width of 150 pixels
-resized_logo = logo.resize((500, 500))
+resized_logo = logo.resize((1000, 1000))
 
 # Create a container and center it
 container = st.beta_container()
