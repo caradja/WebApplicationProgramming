@@ -24,6 +24,9 @@ resized_image = image.resize((325, 192))
 st.image(resized_image)
 st.title("Partner search")
 
+container = st.beta_container()
+container.image(resized_image, use_column_width=True, caption='Logo')
+
 # Select country
 countries = ['ES', 'FR', 'DE']
 ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
