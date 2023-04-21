@@ -17,14 +17,21 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-# Load the image from file
-image = Image.open('logo.jpg')
+from PIL import Image
+import streamlit as st
 
-# Resize the image to width of 300 pixels
-resized_image = image.resize((300, 300))
+# Load the logo image from file
+logo = Image.open('logo.jpg')
 
-# Display the resized image and the title
-st.image(resized_image)
+# Set the maximum size of the logo image to 300x300 pixels while preserving the aspect ratio
+logo.thumbnail((300, 300))
+
+# Create a container and center the logo image
+container = st.beta_container()
+with container:
+    st.image(logo, use_column_width=True, caption='Logo')
+
+# Display the title
 st.title("Partner search")
 
 
