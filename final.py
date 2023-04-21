@@ -21,7 +21,7 @@ from PIL import Image
 # Title
 image = Image.open('logo.jpg')
 resized_image = image.resize((325, 192))
-st.image(image)
+st.image(rezised_image)
 st.title("Partner search")
 
 # Select country
