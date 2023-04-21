@@ -17,15 +17,15 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-# colnames= {c:c for c in list(df)}
-# Title
-image = Image.open('logo.jpg')
-resized_image = image.resize((325, 192))
-st.image(resized_image)
-st.title("Partner search")
+# Load the logo image from file
+logo = Image.open('logo.jpg')
 
+# Resize the logo image to a width of 150 pixels
+resized_logo = logo.resize((150, 150))
+
+# Create a container and center it
 container = st.beta_container()
-container.image(resized_image, use_column_width=True, caption='Logo')
+container.image(resized_logo, use_column_width=True, caption='Logo')
 
 # Select country
 countries = ['ES', 'FR', 'DE']
