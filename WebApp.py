@@ -1,4 +1,4 @@
-conn = sqlite3.connect('db1.db')
+conn = sqlite3.connect('ecsel_database.db')
 cur = conn.cursor()
 
 #creation of a new dataframe with the countries' information. 
