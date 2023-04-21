@@ -19,7 +19,7 @@ from PIL import Image
 
 # colnames= {c:c for c in list(df)}
 # Title
-image = Image.open('KDT-JU.png')
+image = Image.open('logo.jpg')
 st.image(image)
 st.title("Partner search")
 
