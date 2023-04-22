@@ -3,6 +3,12 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
+
+# Function to be used to download the files as csv files
+def to_csv(data_frame):
+    return data_frame.to_csv().encode('utf-8')
+
+
 # 1. Adding the logo of the application
 logo = Image.open('logo.png')
 
@@ -64,6 +70,15 @@ conn.close()
 # Display it:
 st.subheader(f'Participants in {countries_dictionary[country_acronym]}')
 st.dataframe(df_participants)
+
+csv_df_participants = to_csv(df_participants)
+
+sf.download_button(label = f'Download participants data from {countries_dictionary[country_acronym]}',
+                   file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv'
+                   data = csv_df_participants,
+                   mime = 'text/csv')
+
+
 
 # 6. The system shall connect to the database and generate a new project dataframe with the project
 #coordinators from the selected country (from the organizations table in the database). This
