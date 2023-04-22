@@ -11,7 +11,7 @@ container = st.beta_container()
 
 with container:
     col1, col2, col3 = st.beta_columns(3)
-    col2.image(logo, width=200)
+    col2.image(logo, width=150)
     col1.empty()
     col3.empty()
 
