@@ -21,7 +21,7 @@ logo.thumbnail((400, 400))
 container = st.beta_container()
 with container:
     #st.image(logo, use_column_width=False)
-    st.image(logo, width = 500)
+    st.image(logo, width = 300)
 
 # Display the title
 st.title("Partner search")
