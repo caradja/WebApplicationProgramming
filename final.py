@@ -44,16 +44,14 @@ countries = pd.read_sql(f"SELECT * FROM countries", conn)
 
 conn.close()
 
+# The dictionary mentioned above
 countries_dictionary = countries.set_index('Acronym')['Country'].to_dict()
-#st.write(countries)
-#['ES', 'FR', 'DE']
-#ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
 
-# The acronyms will be shown alphabetically
+# The acronyms will be shown alphabetically to the user in a drop-down menu
 country_acronym = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
 
 # Show the country that has been selected
-st.write(f'You have chosen {countries_dictionary[country]}')
+st.write(f'You have chosen {countries_dictionary[country_acronym]}')
 
 
 
