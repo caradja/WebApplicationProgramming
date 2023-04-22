@@ -20,21 +20,10 @@ logo.thumbnail((400, 400))
 # Create a container and center the logo image
 container = st.beta_container()
 with container:
-    #st.image(logo, use_column_width=False)
-    st.image(logo, width = 300)
-
-container.markdown(
-    f"""
-    <style>
-    .element-container:nth-child(3) {{
-        display: flex;
-        justify-content: center;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
+    st.markdown(
+        f'<div style="display: flex; justify-content: center;">{logo}</div>',
+        unsafe_allow_html=True,
+    )
 # Display the title
 st.title("Partner search")
 
