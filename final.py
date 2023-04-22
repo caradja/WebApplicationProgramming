@@ -38,10 +38,9 @@ st.title("Partner search app")
 # 3. Selecting the country acronym
 
 conn = sqlite3.connect('ecsel_database.db')
-# Will be used to generate the dictionary
+
+# Will be used to generate a dictionary
 countries = pd.read_sql(f"SELECT * FROM countries", conn)
-# Will be used to generate the list of Acronyms
-#countries_acronym = pd.read_sql(f"SELECT Acronym FROM countries", conn)
 
 conn.close()
 
@@ -49,8 +48,9 @@ countries_dictionary = countries.set_index('Acronym')['Country'].to_dict()
 #st.write(countries)
 #['ES', 'FR', 'DE']
 #ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
-country = st.selectbox('Select country', countries_dictionary.keys())
-st.write(f'You selected: {country}-{countries_dictionary[country]}')
+
+country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
+st.write(f'You have chosen: {country}-{countries_dictionary[country]}')
 
 
 
