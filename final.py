@@ -49,8 +49,11 @@ countries_dictionary = countries.set_index('Acronym')['Country'].to_dict()
 #['ES', 'FR', 'DE']
 #ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
 
-country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
-st.write(f'You have chosen: {country}-{countries_dictionary[country]}')
+# The acronyms will be shown alphabetically
+country_acronym = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
+
+# Show the country that has been selected
+st.write(f'You have chosen {countries_dictionary[country]}')
 
 
 
