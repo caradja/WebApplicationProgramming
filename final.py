@@ -11,11 +11,12 @@ from PIL import Image
 from PIL import Image
 import streamlit as st
 
+
 # Load the logo image from file
 logo = Image.open('logo.png')
 
 # Set the maximum size of the logo image to 300x300 pixels while preserving the aspect ratio
-logo.thumbnail((200, 400))
+#logo.thumbnail((200, 400))
 
 # Create a container and center the logo image
 container = st.beta_container()
