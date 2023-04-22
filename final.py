@@ -95,7 +95,9 @@ conn.close()
 
 # Display it:
 st.subheader(f'Coordinators in {countries_dictionary[country_acronym]}')
-st.dataframe(df_participants_coordinators)
+# Style the dataframe beforehand
+df_participants_coordinators_stylized = df_participants_coordinators.style.set_properties(**{'background-color': '#fff0f4', 'color': '#000000'})
+st.dataframe(df_participants_coordinators_stylized)
 
 csv_df_participants_coordinators = to_csv(df_participants_coordinators)
 
