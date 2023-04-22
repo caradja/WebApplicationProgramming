@@ -49,7 +49,7 @@ countries_dictionary = countries.set_index('Acronym')['Country'].to_dict()
 #st.write(countries)
 #['ES', 'FR', 'DE']
 #ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
-country = st.selectbox('Select country', coutnries_dictionary["Acronym"])
+country = st.selectbox('Select country', countries_dictionary.keys())
 st.write(f'You selected: {country}-{countries_dictionary[country]}')
 
 
