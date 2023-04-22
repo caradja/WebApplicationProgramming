@@ -33,36 +33,9 @@ container.markdown(
     unsafe_allow_html=True,
 )
     
-    
-    
-    
-    
-# In order to center the title of the application, a similar process will be applied:
-app_width = st._get_report_ctx().width
 
-# Calculate the width of the centered container
-container_width = app_width - 2 * st._get_report_ctx().margin_size['0.5'] - 300
-
-# Create a centered container and add the title
-container = st.beta_container()
-with container:
-    st.title("Partner search app")
-
-# Set the width of the centered container
-container._get_streamlit_component()._update_frame_width(container_width)
-
-# Set the margin of the container to auto to center it horizontally
-st.markdown(
-    f"""
-    <style>
-    div.stHorizontalBlock > div:nth-child(1) {{
-        margin: 0 auto;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
+# The title of the app
+st.title("Partner search app")
 
 
 
