@@ -8,6 +8,20 @@ from PIL import Image
 def to_csv(data_frame):
     return data_frame.to_csv().encode('utf-8')
 
+# Download button class
+
+class Button:
+    def __init__(self, data, file_name):
+        self.data = data
+        self.file_name = file_name
+       
+    def display_button(self):
+        st.download_button(label = f'Download participants data from {countries_dictionary[country_acronym]}',
+                   file_name = f'{self.file_name}_{countries_dictionary[country_acronym]}.csv',
+                   data = self.data,
+                   mime = 'text/csv')
+        
+
 
 # 1. Adding the logo of the application
 logo = Image.open('logo.png')
@@ -75,10 +89,12 @@ st.dataframe(df_participants_stylized)
 
 csv_df_participants = to_csv(df_participants)
 
-st.download_button(label = f'Download participants data from {countries_dictionary[country_acronym]}',
+"""st.download_button(label = f'Download participants data from {countries_dictionary[country_acronym]}',
                    file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv',
                    data = csv_df_participants,
-                   mime = 'text/csv')
+                   mime = 'text/csv')"""
+first_button = Button(data = "csv_df_participants", file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv')
+first_button.display_button()
 
 
 
