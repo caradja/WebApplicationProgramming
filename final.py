@@ -94,3 +94,10 @@ conn.close()
 # Display it:
 st.subheader(f'Coordinators in {countries_dictionary[country_acronym]}')
 st.dataframe(df_participants_coordinators)
+
+csv_df_participants_coordinators = to_csv(df_participants_coordinators)
+
+st.download_button(label = f'Download participants data from {countries_dictionary[country_acronym]}',
+                   file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv',
+                   data = csv_df_participants_coordinators,
+                   mime = 'text/csv')
