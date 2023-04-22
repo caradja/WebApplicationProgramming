@@ -15,13 +15,13 @@ import streamlit as st
 logo = Image.open('logo.png')
 
 # Set the maximum size of the logo image to 300x300 pixels while preserving the aspect ratio
-logo.thumbnail((400, 400))
+logo.thumbnail((200, 400))
 
 # Create a container and center the logo image
 container = st.beta_container()
 with container:
     col1, col2, col3 = st.beta_columns(3)
-    col2.image(logo, width=300)
+    col2.image(logo, width=200)
     col1.empty()
     col3.empty()
 
