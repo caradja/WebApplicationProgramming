@@ -1,8 +1,3 @@
-#st.write("My First Streamlit Web App")
-#df = pd.DataFrame({"one": [1, 2, 3], "two": [4, 5, 6], "three": [7, 8, 9]})
-#st.write(df)
-
-
 import sqlite3
 import pandas as pd
 import streamlit as st
@@ -12,21 +7,20 @@ from PIL import Image
 import streamlit as st
 
 
-# Load the logo image from file
+# Adding the logo of the application
 logo = Image.open('logo.png')
 
-# Set the maximum size of the logo image to 300x300 pixels while preserving the aspect ratio
-#logo.thumbnail((200, 400))
-
-# Create a container and center the logo image
+# In order to center the logo, the following process will be applied:
 container = st.beta_container()
+
 with container:
     col1, col2, col3 = st.beta_columns(3)
     col2.image(logo, width=200)
     col1.empty()
     col3.empty()
 
-# Add CSS styling to center the container
+# CSS is needed in this case, otherwise the logo will be centered but will also appear really big
+# This solution allows us to preserve the original ratio of the image while also centering it
 container.markdown(
     f"""
     <style>
@@ -40,9 +34,25 @@ container.markdown(
 )
     
     
-    
-# Display the title
-st.title("Partner search")
+# In order to center the title of the application, a similar process will be applied:
+container = st.beta_container()
+with container:
+    st.title("My centered title")
+
+container.markdown(
+    f"""
+    <style>
+    .element-container:nth-child(3) {{
+        display: flex;
+        justify-content: center;
+    }}
+    .element-container:nth-child(3) h1 {{
+        text-align: center;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 # Select country
