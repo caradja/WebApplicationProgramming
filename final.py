@@ -21,7 +21,7 @@ from PIL import Image
 import streamlit as st
 
 # Load the logo image from file
-logo = Image.open('logo.jpg')
+logo = Image.open('logo.png')
 
 # Set the maximum size of the logo image to 300x300 pixels while preserving the aspect ratio
 logo.thumbnail((400, 400))
