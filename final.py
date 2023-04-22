@@ -70,7 +70,7 @@ conn.close()
 # Display it:
 st.subheader(f'Participants in {countries_dictionary[country_acronym]}')
 # Style the dataframe beforehand
-df_participants_stylized = df_participants.style.set_properties(**{'background-color': '#34FG32', 'border-color': 'grey', 'color': 'blue'})
+df_participants_stylized = df_participants.style.set_properties(**{'background-color': '#34FG32', 'border-color': 'pink', 'color': 'blue'})
 st.dataframe(df_participants_stylized)
 
 csv_df_participants = to_csv(df_participants)
@@ -99,7 +99,7 @@ st.dataframe(df_participants_coordinators)
 
 csv_df_participants_coordinators = to_csv(df_participants_coordinators)
 
-st.download_button(label = f'Download participants data from {countries_dictionary[country_acronym]}',
+st.download_button(label = f'Download coordinators data from {countries_dictionary[country_acronym]}',
                    file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv',
                    data = csv_df_participants_coordinators,
                    mime = 'text/csv')
