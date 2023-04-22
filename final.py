@@ -24,12 +24,12 @@ import streamlit as st
 logo = Image.open('logo.jpg')
 
 # Set the maximum size of the logo image to 300x300 pixels while preserving the aspect ratio
-logo.thumbnail((500, 500))
+logo.thumbnail((400, 400))
 
 # Create a container and center the logo image
 container = st.beta_container()
 with container:
-    st.image(logo, use_column_width=False)
+    st.image(logo, use_column_width=True)
 
 # Display the title
 st.title("Partner search")
@@ -38,7 +38,7 @@ st.title("Partner search")
 # Select country
 countries = ['ES', 'FR', 'DE']
 ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
-country = st.selectbox('Select country',countries)
+country = st.selectbox('Select country', countries)
 st.write(f'You selected: {country}-{ct[country]}')
 
 # SQL queries
