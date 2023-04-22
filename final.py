@@ -39,6 +39,7 @@ container = st.beta_container()
 with container:
     st.title("My centered title")
 
+# Add CSS styling to center the container
 container.markdown(
     f"""
     <style>
@@ -47,13 +48,13 @@ container.markdown(
         justify-content: center;
     }}
     .element-container:nth-child(3) h1 {{
-        text-align: center;
+        text-align: center !important;
+        width: 100%;
     }}
     </style>
     """,
     unsafe_allow_html=True,
 )
-
 
 # Select country
 countries = ['ES', 'FR', 'DE']
