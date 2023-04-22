@@ -35,10 +35,10 @@ st.title("Partner search app")
 
 
 
-
-
 # Select country
-countries = pd.read_sql(f"SELECT * FROM participants WHERE country = '{country}' ", conn)
+conn = sqlite3.connect('ecsel_database.db')
+countries = pd.read_sql(f"SELECT * FROM countries WHERE country = '{country}' ", conn)
+conn.close()
 st.write(countries)
 #['ES', 'FR', 'DE']
 ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
