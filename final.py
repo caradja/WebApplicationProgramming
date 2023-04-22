@@ -38,7 +38,7 @@ st.title("Partner search app")
 
 
 # Select country
-countries = pd.read_sql(f"SELECT Acronym FROM countries WHERE country = '{country}' ", conn)
+countries = pd.read_sql(f"SELECT * FROM countries WHERE country = '{country}' ", conn)
 st.write(countries)
 #['ES', 'FR', 'DE']
 ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
