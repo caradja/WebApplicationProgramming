@@ -35,21 +35,23 @@ container.markdown(
     
     
 # In order to center the title of the application, a similar process will be applied:
+import streamlit as st
+
+# Create a container and center the title
 container = st.beta_container()
 with container:
     st.title("My centered title")
 
 # Add CSS styling to center the container
-container.markdown(
+st.markdown(
     f"""
     <style>
     .element-container:nth-child(3) {{
         display: flex;
         justify-content: center;
     }}
-    .element-container:nth-child(3) h1 {{
-        text-align: center !important;
-        width: 100%;
+    .element-container:nth-child(3) .css-1fcmnwj {{
+        text-align: center;
     }}
     </style>
     """,
