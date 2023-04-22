@@ -89,10 +89,6 @@ st.dataframe(df_participants_stylized)
 
 csv_df_participants = to_csv(df_participants)
 
-"""st.download_button(label = f'Download participants data from {countries_dictionary[country_acronym]}',
-                   file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv',
-                   data = csv_df_participants,
-                   mime = 'text/csv')"""
 first_button = Button(data = "csv_df_participants", file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv')
 first_button.display_button()
 
