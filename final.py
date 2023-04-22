@@ -64,4 +64,4 @@ conn.close()
 
 # participants
 st.subheader(f'Participants in {countries_dictionary[country_acronym]}')
-st.dataframe(df_participants, width = 1000)
+st.dataframe(df_participants, width = 2500)
