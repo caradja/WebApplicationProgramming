@@ -23,6 +23,18 @@ with container:
     #st.image(logo, use_column_width=False)
     st.image(logo, width = 300)
 
+container.markdown(
+    f"""
+    <style>
+    .stApp > div > div > div:nth-child(3) {{
+        display: flex;
+        justify-content: center;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Display the title
 st.title("Partner search")
 
