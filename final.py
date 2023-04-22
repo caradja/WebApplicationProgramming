@@ -42,7 +42,8 @@ st.title("Partner search app")
 
 
 # Select country
-countries = ['ES', 'FR', 'DE']
+countries = pd.read_sql(f"SELECT Acronym FROM countries WHERE Country = '{country}' ", conn)
+#['ES', 'FR', 'DE']
 ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
 country = st.selectbox('Select country', countries)
 st.write(f'You selected: {country}-{ct[country]}')
