@@ -34,9 +34,11 @@ container.markdown(
 )
     
     
+    
+    
+    
 # In order to center the title of the application, a similar process will be applied:
-# Get the dimensions of the Streamlit app
-app_width = st._get_report_ctx().get_metrics_for_widget(st.session_state).get('app_width')
+app_width = st._get_report_ctx().width
 
 # Calculate the width of the centered container
 container_width = app_width - 2 * st._get_report_ctx().margin_size['0.5'] - 300
@@ -60,6 +62,9 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+
+
 
 
 
