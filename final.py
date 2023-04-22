@@ -9,7 +9,6 @@ def to_csv(data_frame):
     return data_frame.to_csv().encode('utf-8')
 
 # Download button class
-
 class Button:
     def __init__(self, data, file_name):
         self.data = data
@@ -89,7 +88,7 @@ st.dataframe(df_participants_stylized)
 
 csv_df_participants = to_csv(df_participants)
 
-first_button = Button(data = "csv_df_participants", file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv')
+first_button = Button(data = csv_df_participants, file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv')
 first_button.display_button()
 
 
@@ -113,7 +112,5 @@ st.dataframe(df_participants_coordinators_stylized)
 
 csv_df_participants_coordinators = to_csv(df_participants_coordinators)
 
-st.download_button(label = f'Download coordinators data from {countries_dictionary[country_acronym]}',
-                   file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv',
-                   data = csv_df_participants_coordinators,
-                   mime = 'text/csv')
+second_button = Button(data = csv_df_participants_coordinators, file_name = f'coordinators_from_{countries_dictionary[country_acronym]}.csv')
+second_button.display_button()
