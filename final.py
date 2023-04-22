@@ -59,13 +59,6 @@ conn = sqlite3.connect('ecsel_database.db')
 # Duda: El count era totalpartners?
 df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizationURL, SUM(ecContribution) AS ReceivedGrants, COUNT(name) AS TotalPartners FROM participants WHERE country = '{country_acronym}' GROUP BY shortName, name, activityType, organizationURL", conn)
 
-"""
-received_grants = unified[unified['country_acronym'] == acronym].groupby(
-    ['shortName', 'name', 'activityType', 'organizationURL']).agg({'ecContribution': 'sum', 'name': 'count'})
-received_grants = received_grants.rename(columns={'ecContribution': 'sum_ecContribution'})
-received_grants = received_grants.rename(columns={'name': 'count'})
-received_grants
-"""
     
 conn.close()
 
