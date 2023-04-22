@@ -12,19 +12,21 @@ logo = Image.open('logo.png')
 
 # In order to center the logo, the following process will be applied:
 container = st.beta_container()
-with container:
-    st.title("My centered title")
 
-# Add CSS styling to center the container
-st.markdown(
+with container:
+    col1, col2, col3 = st.beta_columns(3)
+    col2.image(logo, width=200)
+    col1.empty()
+    col3.empty()
+
+# CSS is needed in this case, otherwise the logo will be centered but will also appear really big
+# This solution allows us to preserve the original ratio of the image while also centering it
+container.markdown(
     f"""
     <style>
     .element-container:nth-child(3) {{
         display: flex;
         justify-content: center;
-    }}
-    .element-container:nth-child(3) > div {{
-        text-align: center;
     }}
     </style>
     """,
