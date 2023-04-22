@@ -50,17 +50,23 @@ countries_dictionary = countries.set_index('Acronym')['Country'].to_dict()
 # The acronyms will be shown alphabetically to the user in a drop-down menu
 country_acronym = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
 
-# Show the country that has been selected
+# 4. Show the user the country that has been selected
 st.write(f'You have chosen {countries_dictionary[country_acronym]}')
 
 
-
-# SQL queries
+# 5. Show the total amount of grants received per partner in the selected country
 conn = sqlite3.connect('ecsel_database.db')
-#df_grants = pd.read_sql(f"SELECT year, grants FROM grants WHERE country = '{country}' ", conn)
-#df_grants = df_grants.set_index('year')
-df_participants = pd.read_sql(f"SELECT * FROM participants WHERE country = '{country_acronym}' ", conn)
-#df_coordinators = pd.read_sql(f"SELECT * FROM coordinators WHERE country = '{country}' ", conn)
+# Duda: El count era totalpartners?
+df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizationURL, SUM(ecContribution) AS ReceivedGrants, COUNT(name) TotalPartners FROM participants WHERE country = '{country_acronym}' GROUP BY shortName, name, activityType, organizationURL", conn)
+
+"""
+received_grants = unified[unified['country_acronym'] == acronym].groupby(
+    ['shortName', 'name', 'activityType', 'organizationURL']).agg({'ecContribution': 'sum', 'name': 'count'})
+received_grants = received_grants.rename(columns={'ecContribution': 'sum_ecContribution'})
+received_grants = received_grants.rename(columns={'name': 'count'})
+received_grants
+"""
+    
 conn.close()
 
 # participants
