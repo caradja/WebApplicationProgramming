@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-# Adding the logo of the application
+# 1. Adding the logo of the application
 logo = Image.open('logo.png')
 
 # In order to center the logo, the following process will be applied:
@@ -30,23 +30,26 @@ container.markdown(
 )
     
 
-# The title of the app
+# 2. Adding the title of the app
 st.title("Partner search app")
 
 
 
-# Retrieving the acronyms that will be displayed to the user
+# 3. Selecting the country acronym
+
 conn = sqlite3.connect('ecsel_database.db')
 # Will be used to generate the dictionary
-countries_dataset = pd.read_sql(f"SELECT * FROM countries", conn)
+countries = pd.read_sql(f"SELECT * FROM countries", conn)
 # Will be used to generate the list of Acronyms
-countries_acronym = pd.read_sql(f"SELECT Acronym FROM countries", conn)
+#countries_acronym = pd.read_sql(f"SELECT Acronym FROM countries", conn)
+
 conn.close()
-countries_dictionary = countries_dataset.set_index('Acronym')['Country'].to_dict()
+
+countries_dictionary = countries.set_index('Acronym')['Country'].to_dict()
 #st.write(countries)
 #['ES', 'FR', 'DE']
 #ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
-country = st.selectbox('Select country', countries_acronym)
+country = st.selectbox('Select country', coutnries_dictionary["Acronym"])
 st.write(f'You selected: {country}-{countries_dictionary[country]}')
 
 
