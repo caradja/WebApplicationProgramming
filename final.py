@@ -3,10 +3,6 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-from PIL import Image
-import streamlit as st
-
-
 # Adding the logo of the application
 logo = Image.open('logo.png')
 
@@ -43,7 +39,7 @@ st.title("Partner search app")
 
 # Select country
 countries = pd.read_sql(f"SELECT Acronym FROM countries WHERE country = '{country}' ", conn)
-print(countries)
+st.write(countries)
 #['ES', 'FR', 'DE']
 ct = {'ES': 'Spain', 'DE': 'Germany', 'FR':'France'}
 country = st.selectbox('Select country', countries)
