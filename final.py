@@ -29,7 +29,7 @@ logo.thumbnail((500, 500))
 # Create a container and center the logo image
 container = st.beta_container()
 with container:
-    st.image(logo, use_column_width=True, caption='Logo')
+    st.image(logo, use_column_width=False)
 
 # Display the title
 st.title("Partner search")
