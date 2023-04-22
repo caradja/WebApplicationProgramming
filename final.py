@@ -57,7 +57,7 @@ st.write(f'You have chosen {countries_dictionary[country_acronym]}')
 # 5. Show the total amount of grants received per partner in the selected country
 conn = sqlite3.connect('ecsel_database.db')
 # Duda: El count era totalpartners?
-df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizationURL, SUM(ecContribution) AS ReceivedGrants, COUNT(name) AS TotalPartners FROM participants WHERE country = '{country_acronym}' GROUP BY shortName, name, activityType, organizationURL", conn)
+df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizationURL, SUM(ecContribution) AS ReceivedGrants, COUNT(name) AS TotalPartners FROM participants WHERE country = '{country_acronym}' GROUP BY shortName, name, activityType, organizationURL ORDER BY ReceivedGrants DESC", conn)
 
     
 conn.close()
