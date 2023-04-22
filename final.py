@@ -77,5 +77,5 @@ df_participants_coordinators = pd.read_sql(f"SELECT shortName, name, activityTyp
 conn.close()
 
 # Display it:
-st.subheader(f'Participants in {countries_dictionary[country_acronym]}')
+st.subheader(f'Coordinators in {countries_dictionary[country_acronym]}')
 st.dataframe(df_participants_coordinators)
