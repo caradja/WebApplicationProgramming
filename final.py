@@ -70,7 +70,7 @@ conn.close()
 # Display it:
 st.subheader(f'Participants in {countries_dictionary[country_acronym]}')
 # Style the dataframe beforehand
-df_participants = df_participants.style.set_properties(**{'background-color': '#34FG32', border-color: 'grey', 'color': 'blue'})
+df_participants = df_participants.style.set_properties(**{'background-color': '#34FG32', 'border-color': 'grey', 'color': 'blue'})
 st.dataframe(df_participants)
 
 csv_df_participants = to_csv(df_participants)
