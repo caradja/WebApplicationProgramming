@@ -1,4 +1,4 @@
-"""import streamlit as st
+import streamlit as st
 import pandas as pd
 from sqlite3 import connect
 
@@ -9,7 +9,7 @@ st.write(df)
 conn = sqlite3.connect('ecsel_database.db')
 cur = conn.cursor()
 cur.execute('SELECT Country FROM Countries')
-df = pd.DataFrame(cur.fetchall(), columns = ['COUNTRYNAME'])"""
+df = pd.DataFrame(cur.fetchall(), columns = ['COUNTRYNAME'])
 
 
 import sqlite3
