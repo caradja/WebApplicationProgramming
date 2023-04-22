@@ -26,7 +26,7 @@ with container:
 container.markdown(
     f"""
     <style>
-    .stApp > div > div > div:nth-child(3) {{
+    .element-container:nth-child(3) {{
         display: flex;
         justify-content: center;
     }}
