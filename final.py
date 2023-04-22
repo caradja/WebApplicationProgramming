@@ -54,14 +54,24 @@ country_acronym = st.selectbox('Choose a country', sorted(countries_dictionary.k
 st.write(f'You have chosen {countries_dictionary[country_acronym]}')
 
 
-# 5. Show the total amount of grants received per partner in the selected country
+# 5. Show the total amount of grants received per partner in the selected country in descending order
 conn = sqlite3.connect('ecsel_database.db')
 # Duda: El count era totalpartners?
+# Hay que hacer where role = participants? o solo abajo role = coordinator? No me queda muy claro en el enunciado del trabajo
 df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizationURL, SUM(ecContribution) AS ReceivedGrants, COUNT(name) AS TotalPartners FROM participants WHERE country = '{country_acronym}' GROUP BY shortName, name, activityType, organizationURL ORDER BY ReceivedGrants DESC", conn)
-
-    
 conn.close()
 
-# participants
+# Display it:
 st.subheader(f'Participants in {countries_dictionary[country_acronym]}')
 st.dataframe(df_participants)
+
+# 6. The system shall connect to the database and generate a new project dataframe with the project
+#coordinators from the selected country (from the organizations table in the database). This
+#dataset should filter only project coordinators and include the following fields: shortName, name,
+#activityType, projectAcronym? -- El nombre de la file no coincide con ninguna tabla de la database, y el nombre de las columnas son iguales que antes?
+
+# Hay que hacer where role = coordinator, entiendo -- pero el nombre de la tabla no es como dice en el enunciado del trabajo hmm
+conn = sqlite3.connect('ecsel_database.db')
+# Duda: El count era totalpartners?
+df_participants_coordinators = pd.read_sql(f"SELECT shortName, name, activityType, projectAcronym FROM participants WHERE country = '{country_acronym}' AND role = 'coordinator' ORDER BY shortName ASC", conn)
+conn.close()
