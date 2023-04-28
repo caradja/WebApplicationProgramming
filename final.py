@@ -72,7 +72,7 @@ country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
 
 
 # 4. Show the user the country that has been selected
-st.write(f'You have chosen {countries_dictionary[country]}')
+st.write(f'You have chosen {country}')
 
 
 # 5. Show the total amount of grants received per partner in the selected country in descending order
