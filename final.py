@@ -79,7 +79,13 @@ conn = sqlite3.connect('ecsel_database.db')
 # Duda: El count era totalpartners?
 # Hay que hacer where role = participants? o solo abajo role = coordinator? No me queda muy claro en el enunciado del trabajo
 
-df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizationURL, SUM(ecContribution) AS ReceivedGrants, COUNT(name) AS TotalParticipations FROM participants WHERE country = '{country_acronym}' GROUP BY shortName, name, activityType, organizationURL ORDER BY ReceivedGrants DESC", conn)
+df_participants = pd.read_sql(f"""SELECT p.shortName, p.name, p.activityType, p.organizationURL, SUM(p.ecContribution) AS ReceivedGrants, COUNT(p.name) AS TotalParticipations
+                                    FROM participants AS p
+                                    JOIN countries AS c
+                                    ON c.Acronym = p.country
+                                    WHERE p.country = '{country}'
+                                    GROUP BY p.shortName, p.name, p.activityType, p.organizationURL
+                                    ORDER BY ReceivedGrants DESC""", conn)
 
 conn.close()
 
