@@ -65,9 +65,10 @@ conn.close()
 
 # The dictionary mentioned above
 countries_dictionary = countries.set_index('Country')['Acronym'].to_dict()
+st.write(country_dictionary)
 
 # The acronyms will be shown alphabetically to the user in a drop-down menu
-country = st.selectbox('Choose a country', sorted(countries_dictionary.values()))
+country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
 
 
 # 4. Show the user the country that has been selected
