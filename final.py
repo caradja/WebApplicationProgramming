@@ -67,10 +67,10 @@ conn.close()
 countries_dictionary = countries.set_index('Acronym')['Country'].to_dict()
 
 # The acronyms will be shown alphabetically to the user in a drop-down menu
-country_acronym = st.selectbox('Choose a country', sorted(countries_dictionary.values()))
+country = st.selectbox('Choose a country', sorted(countries_dictionary.values()))
 
 # 4. Show the user the country that has been selected
-st.write(f'You have chosen {countries_dictionary[country_acronym]}')
+st.write(f'You have chosen {countries_dictionary[country]}')
 
 
 # 5. Show the total amount of grants received per partner in the selected country in descending order
@@ -81,14 +81,14 @@ df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizati
 conn.close()
 
 # Display it:
-st.subheader(f'Participants in {countries_dictionary[country_acronym]}')
+st.subheader(f'Participants in {countries_dictionary[country]}')
 # Style the dataframe beforehand
 df_participants_stylized = df_participants.style.set_properties(**{'background-color': '#f2f9ff', 'color': '#000000'})
 st.dataframe(df_participants_stylized)
 
 csv_df_participants = to_csv(df_participants)
 
-first_button = Button(data = csv_df_participants, file_name = f'participants_from_{countries_dictionary[country_acronym]}.csv')
+first_button = Button(data = csv_df_participants, file_name = f'participants_from_{countries_dictionary[country]}.csv')
 first_button.display_button()
 
 
