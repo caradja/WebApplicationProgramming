@@ -69,6 +69,12 @@ countries_dictionary = countries.set_index('Country')['Acronym'].to_dict()
 # The acronyms will be shown alphabetically to the user in a drop-down menu
 country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
 
+activity_type_dictionary = countries['activityType'].to_dict()
+
+st.write(activity_type_dictionary)
+
+#activity_type = st.radio('Choose an activity type', 
+
 
 # 4. Show the user the country that has been selected
 st.write(f'You have chosen {country}')
