@@ -80,7 +80,7 @@ activity_type = st.radio('Choose an activity type', activity_type_column.unique(
 
 
 # 4. Show the user the country that has been selected
-st.write(f'You have chosen {country}, {activity_type}')
+st.write(f'You have chosen {country} and {activity_type}')
 
 
 # 5. Show the total amount of grants received per partner in the selected country in descending order
