@@ -71,6 +71,8 @@ country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
 
 activity_type_dictionary = countries["activityType"]
 
+
+st.write(countries)
 #st.write(activity_type_dictionary)
 
 #activity_type = st.radio('Choose an activity type', 
