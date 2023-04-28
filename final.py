@@ -83,7 +83,7 @@ df_participants = pd.read_sql(f"""SELECT p.shortName, p.name, p.activityType, p.
                                     FROM participants AS p
                                     JOIN countries AS c
                                     ON c.Acronym = p.country
-                                    WHERE p.country = '{country}'
+                                    WHERE c.Country = '{country}'
                                     GROUP BY p.shortName, p.name, p.activityType, p.organizationURL
                                     ORDER BY ReceivedGrants DESC""", conn)
 
