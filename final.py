@@ -65,7 +65,6 @@ conn.close()
 
 # The dictionary mentioned above
 countries_dictionary = countries.set_index('Country')['Acronym'].to_dict()
-st.write(countries_dictionary)
 
 # The acronyms will be shown alphabetically to the user in a drop-down menu
 country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
@@ -79,7 +78,9 @@ st.write(f'You have chosen {country}')
 conn = sqlite3.connect('ecsel_database.db')
 # Duda: El count era totalpartners?
 # Hay que hacer where role = participants? o solo abajo role = coordinator? No me queda muy claro en el enunciado del trabajo
-df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizationURL, SUM(ecContribution) AS ReceivedGrants, COUNT(name) AS TotalParticipations FROM participants WHERE country = '{country_acronym}' GROUP BY shortName, name, activityType, organizationURL ORDER BY ReceivedGrants DESC", conn)
+
+ df_participants = pd.read_sql(f"SELECT shortName, name, activityType, organizationURL, SUM(ecContribution) AS ReceivedGrants, COUNT(name) AS TotalParticipations FROM participants WHERE country = '{country_acronym}' GROUP BY shortName, name, activityType, organizationURL ORDER BY ReceivedGrants DESC", conn)
+
 conn.close()
 
 # Display it:
