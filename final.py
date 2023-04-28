@@ -114,8 +114,8 @@ df_participants_coordinators = pd.read_sql(f"""SELECT p.shortName, p.name, p.act
                                                 FROM participants AS p
                                                 JOIN countries aS c
                                                 On c.Acronym = p.country
-                                                WHERE country = '{country}' AND role = 'coordinator'
-                                                ORDER BY shortName ASC""", conn)
+                                                WHERE c.Country = '{country}' AND p.role = 'coordinator'
+                                                ORDER BY p.shortName ASC""", conn)
 conn.close()
 
 # Display it:
