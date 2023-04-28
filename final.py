@@ -70,12 +70,10 @@ countries_dictionary = countries.set_index('Country')['Acronym'].to_dict()
 country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
 
 
-st.write(countries)
 
-#activity_type_dictionary = countries["activityType"]
-#st.write(activity_type_dictionary)
+activity_type_column = participants["activityType"]
 
-#activity_type = st.radio('Choose an activity type', 
+activity_type = st.radio('Choose an activity type', activity_type_column.unique())
 
 
 # 4. Show the user the country that has been selected
