@@ -15,8 +15,8 @@ class Button:
         self.file_name = file_name
        
     def display_button(self):
-        st.download_button(label = f'Download participants data from {countries_dictionary[country_acronym]}',
-                   file_name = f'{self.file_name}_{countries_dictionary[country_acronym]}.csv',
+        st.download_button(label = f'Download participants data from {countries_dictionary[country]}',
+                   file_name = f'{self.file_name}_{countries_dictionary[country]}.csv',
                    data = self.data,
                    mime = 'text/csv')
         
@@ -104,16 +104,16 @@ first_button.display_button()
 # Hay que hacer where role = coordinator, entiendo -- pero el nombre de la tabla no es como dice en el enunciado del trabajo hmm
 conn = sqlite3.connect('ecsel_database.db')
 # Duda: El count era totalpartners?
-df_participants_coordinators = pd.read_sql(f"SELECT shortName, name, activityType, projectAcronym FROM participants WHERE country = '{country_acronym}' AND role = 'coordinator' ORDER BY shortName ASC", conn)
+df_participants_coordinators = pd.read_sql(f"SELECT shortName, name, activityType, projectAcronym FROM participants WHERE country = '{country}' AND role = 'coordinator' ORDER BY shortName ASC", conn)
 conn.close()
 
 # Display it:
-st.subheader(f'Coordinators in {countries_dictionary[country_acronym]}')
+st.subheader(f'Coordinators in {countries_dictionary[country]}')
 # Style the dataframe beforehand
 df_participants_coordinators_stylized = df_participants_coordinators.style.set_properties(**{'background-color': '#f2f9ff', 'color': '#000000'})
 st.dataframe(df_participants_coordinators_stylized)
 
 csv_df_participants_coordinators = to_csv(df_participants_coordinators)
 
-second_button = Button(data = csv_df_participants_coordinators, file_name = f'coordinators_from_{countries_dictionary[country_acronym]}.csv')
+second_button = Button(data = csv_df_participants_coordinators, file_name = f'coordinators_from_{countries_dictionary[country]}.csv')
 second_button.display_button()
