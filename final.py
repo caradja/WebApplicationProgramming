@@ -90,7 +90,7 @@ df_participants = pd.read_sql(f"""SELECT p.shortName, p.name, p.activityType, p.
 conn.close()
 
 # Display it:
-st.subheader(f'Participants in {countries_dictionary[country]}')
+st.subheader(f'Participants in {country}')
 # Style the dataframe beforehand
 df_participants_stylized = df_participants.style.set_properties(**{'background-color': '#f2f9ff', 'color': '#000000'})
 st.dataframe(df_participants_stylized)
@@ -114,7 +114,7 @@ df_participants_coordinators = pd.read_sql(f"SELECT shortName, name, activityTyp
 conn.close()
 
 # Display it:
-st.subheader(f'Coordinators in {countries_dictionary[country]}')
+st.subheader(f'Coordinators in {country}')
 # Style the dataframe beforehand
 df_participants_coordinators_stylized = df_participants_coordinators.style.set_properties(**{'background-color': '#f2f9ff', 'color': '#000000'})
 st.dataframe(df_participants_coordinators_stylized)
