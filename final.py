@@ -110,7 +110,12 @@ first_button.display_button()
 # Hay que hacer where role = coordinator, entiendo -- pero el nombre de la tabla no es como dice en el enunciado del trabajo hmm
 conn = sqlite3.connect('ecsel_database.db')
 # Duda: El count era totalpartners?
-df_participants_coordinators = pd.read_sql(f"SELECT shortName, name, activityType, projectAcronym FROM participants WHERE country = '{country}' AND role = 'coordinator' ORDER BY shortName ASC", conn)
+df_participants_coordinators = pd.read_sql(f"""SELECT p.shortName, p.name, p.activityType, p.projectAcronym
+                                                FROM participants AS p
+                                                JOIN countries aS c
+                                                On c.Acronym = p.country
+                                                WHERE country = '{country}' AND role = 'coordinator'
+                                                ORDER BY shortName ASC""", conn)
 conn.close()
 
 # Display it:
