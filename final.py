@@ -19,7 +19,7 @@ class Button:
        
     def display_button(self):
         st.download_button(label = f'Download participants data from {countries_dictionary[country]}',
-                   file_name = f'{self.file_name}.csv',
+                   file_name = f'{self.file_name}_{countries_dictionary[country]}.csv',
                    data = self.data,
                    mime = 'text/csv')
         
@@ -112,7 +112,7 @@ if confidentiality_agreement:
 
     csv_df_participants = to_csv(df_participants)
 
-    first_button = Button(data = csv_df_participants, file_name = f'participants_from_{countries_dictionary[country]}.csv')
+    first_button = Button(data = csv_df_participants, file_name = f'participants_from')
     first_button.display_button()
 
 
@@ -141,7 +141,7 @@ if confidentiality_agreement:
 
     csv_df_participants_coordinators = to_csv(df_participants_coordinators)
 
-    second_button = Button(data = csv_df_participants_coordinators, file_name = f'coordinators_from_{countries_dictionary[country]}.csv')
+    second_button = Button(data = csv_df_participants_coordinators, file_name = f'coordinators_from')
     second_button.display_button()
     
     
