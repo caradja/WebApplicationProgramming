@@ -50,14 +50,7 @@ container.markdown(
     
 
 # 2. Adding the title of the app
-st.write(f"""
-            <style>
-                .title {{
-                    color: #f2f9ff;
-                    }}
-             </style>
-             
-             <h1 class="title">PArtner search app</h1>""")
+st.markdown(f"<h1 style = 'color:#f2f9ff;'>Partner search app</h1>", unsafe_allow_html = True)
 #st.title("Partner search app")
 
 
