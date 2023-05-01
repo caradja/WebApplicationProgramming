@@ -67,6 +67,7 @@ participants = pd.read_sql(f"SELECT * FROM participants", conn)
 conn.close()
 
 
+# Filters will appear in an expander so that it does not occupy too much space on the screen
 with st.beta_expander("Filters"):
     # The dictionary mentioned above
     countries_dictionary = countries.set_index('Country')['Acronym'].to_dict()
@@ -79,7 +80,7 @@ with st.beta_expander("Filters"):
     activity_type = st.radio('Choose an activity type', activity_type_column.unique())
 
 
-# 4. Show the user the country that has been selected
+# 4. Show the user the country and activity that have been selected
 st.write(f'You have chosen {country} and {activity_type}')
 
 
@@ -92,7 +93,7 @@ df_participants = pd.read_sql(f"""SELECT p.shortName, p.name, p.activityType, p.
                                     FROM participants AS p
                                     JOIN countries AS c
                                     ON c.Acronym = p.country
-                                    WHERE c.Country = '{country}'
+                                    WHERE c.Country = '{country}' AND p.activityType = '{activity_type}'
                                     GROUP BY p.shortName, p.name, p.activityType, p.organizationURL
                                     ORDER BY ReceivedGrants DESC""", conn)
 
@@ -123,7 +124,7 @@ df_participants_coordinators = pd.read_sql(f"""SELECT p.shortName, p.name, p.act
                                                 FROM participants AS p
                                                 JOIN countries AS c
                                                 ON c.Acronym = p.country
-                                                WHERE c.Country = '{country}' AND p.role = 'coordinator'
+                                                WHERE c.Country = '{country}' AND p.role = 'coordinator' AND p.activityType = '{activity_type}'
                                                 ORDER BY p.shortName ASC""", conn)
 conn.close()
 
