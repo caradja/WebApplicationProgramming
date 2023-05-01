@@ -149,28 +149,28 @@ if confidentiality_agreement:
         st.write("Participants related graphs")
         
         if len(df_participants) > 0:
-        corr_coef = np.corrcoef(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])[0][1]
-        st.write(f"Correlation coefficient: {corr_coef:.2f}")
-        
-        # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants (NOT LOG SCALE)
-        fig, ax = plt.subplots()
-        ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
-        ax.set_xlabel("Received Grants")
-        ax.set_ylabel("Total Participations")
-        ax.set_title("Received Grants vs. Total Participations")
-        #Display the graph
-        st.pyplot(fig)
-        
-        # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants (LOG SCALE)
-        fig, ax = plt.subplots()
-        ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
-        ax.set_xlabel("Received Grants (log scale)")
-        ax.set_xscale("log")
-        ax.set_ylabel("Total Participations (log scale)")
-        ax.set_yscale("log")
-        ax.set_title("Received Grants vs. Total Participations (log scale)")
-        #Display the graph
-        st.pyplot(fig)
+            corr_coef = np.corrcoef(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])[0][1]
+            st.write(f"Correlation coefficient: {corr_coef:.2f}")
+
+            # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants (NOT LOG SCALE)
+            fig, ax = plt.subplots()
+            ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
+            ax.set_xlabel("Received Grants")
+            ax.set_ylabel("Total Participations")
+            ax.set_title("Received Grants vs. Total Participations")
+            #Display the graph
+            st.pyplot(fig)
+
+            # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants (LOG SCALE)
+            fig, ax = plt.subplots()
+            ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
+            ax.set_xlabel("Received Grants (log scale)")
+            ax.set_xscale("log")
+            ax.set_ylabel("Total Participations (log scale)")
+            ax.set_yscale("log")
+            ax.set_title("Received Grants vs. Total Participations (log scale)")
+            #Display the graph
+            st.pyplot(fig)
         
         else:
             st.write("No data available")
