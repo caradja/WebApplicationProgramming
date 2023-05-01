@@ -20,6 +20,7 @@ class Button:
                    data = self.data,
                    mime = 'text/csv')
         
+        
 # 1. Adding the logo of the application
 logo = Image.open('logo.png')
 
@@ -51,7 +52,9 @@ confidentiality_agreement = st.checkbox("I understand that the session is confid
 
 # The content will not be visible to the user unless they agree with the confidentiality agreement
 if confidentiality_agreement:
-
+    
+    st.empty()
+    
     # 2. Adding the title of the app
     st.markdown(f"<h1 style = 'color:#307be8;'>Partner search app</h1>", unsafe_allow_html = True)
     #st.title("Partner search app")
