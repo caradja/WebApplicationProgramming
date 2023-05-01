@@ -177,11 +177,12 @@ if confidentiality_agreement:
             
             # Generate a violin boxplot to see the underlying distribution of the data as well
             
+            fig2, ax = plt.suplots()
             sns.violinplot(data = df_participants[['ReceivedGrants', 'TotalParticipations']], ax = ax)
             plt.title("Received Grants vs. Total Participations")
             plt.xlabel("Received Grants")
             plt.ylable("Total Participations")
-            st.pyplot()
+            st.pyplot(fig2)
         
         else:
             st.write("No data available")
