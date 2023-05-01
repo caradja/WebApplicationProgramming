@@ -53,15 +53,9 @@ st.markdown(f"<h1 style = 'color:#307be8;'>Partner search app</h1>", unsafe_allo
         
 
 confidentiality_agreement = st.checkbox("I understand that the session is confidential & I am not to share data with unauthorized people")
-# Fixed value -- should not be changed.
-CONFIDENTIALITY_AGREEMENT = confidentiality_agreement
-# Make the confidentiality agreement checkbox disappear from the screen after the user agrees
-del confidentiality_agreement
 
 # The content will not be visible to the user unless they agree with the confidentiality agreement
-if CONFIDENTIALITY_AGREEMENT:
-    
-    confidentiality_agreement = st.write("")
+if confidentiality_agreement:
     
     # 3. Selecting the country acronym
     conn = sqlite3.connect('ecsel_database.db')
