@@ -148,6 +148,7 @@ if confidentiality_agreement:
     with st.sidebar:
         st.write("Participants related graphs")
         
+        if len(df_participants) > 0:
         corr_coef = np.corrcoef(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])[0][1]
         st.write(f"Correlation coefficient: {corr_coef:.2f}")
         
@@ -170,3 +171,6 @@ if confidentiality_agreement:
         ax.set_title("Received Grants vs. Total Participations (log scale)")
         #Display the graph
         st.pyplot(fig)
+        
+        else:
+            st.write("No data available")
