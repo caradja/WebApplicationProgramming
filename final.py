@@ -171,6 +171,7 @@ if confidentiality_agreement:
             
             fig3, ax3 = plt.subplots()
             sns.violinplot(data = df_participants, x = 'TotalParticipations', color = 'red')
+            ax3.set_xlim(0, None)
             st.pyplot(fig3)
         
         else:
