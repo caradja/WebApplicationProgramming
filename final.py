@@ -50,7 +50,7 @@ container.markdown(
     
 
 # 2. Adding the title of the app
-st.title("Partner search app", style = {"color":"#f2f9ff"})
+st.title("Partner search app", style = {"color":"#f2f9ff", "font-size": "30px"})
 
 
 
