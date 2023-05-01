@@ -23,6 +23,7 @@ class Button:
 
 confidentiality_agreement = st.checkbox("I understand that the session is confidential & I am not allowed to share the data with unauthorized people")
 
+# The content will not be visible to the user unless they agree with the confidentiality agreement
 if confidentiality_agreement:
     
     # 1. Adding the logo of the application
@@ -142,7 +143,3 @@ if confidentiality_agreement:
 
     second_button = Button(data = csv_df_participants_coordinators, file_name = f'coordinators_from_{countries_dictionary[country]}.csv')
     second_button.display_button()
-
-else:
-    
-    st.write("Please, agree to the confidentiality terms in order to see the content!")
