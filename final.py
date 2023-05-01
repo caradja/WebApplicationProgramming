@@ -177,8 +177,8 @@ if confidentiality_agreement:
             
             # Generate a violin boxplot to see the underlying distribution of the data as well
             
-            fig2, ax2 = plt.suplots()
-            sns.violinplot(df_participants['ReceivedGrants'], df_participants['TotalParticipations'])
+            fig2, ax2 = plt.subplots()
+            sns.violinplot(data = df_participants, x = 'ReceivedGrants', y = 'TotalParticipations')
             st.pyplot(fig2)
         
         else:
