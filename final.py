@@ -145,13 +145,13 @@ if confidentiality_agreement:
     
     # The side bar after all data is extracted
     with st.sidebar:
-        st.write("Stats participants")
+        st.write("Participants related graphs")
         
         # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants (NOT LOG SCALE)
         fig, ax = plt.subplots()
         ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
-        ax.set_xlabel("Received Grants (log scale)")
-        ax.set_ylabel("Total Participations (log scale)")
+        ax.set_xlabel("Received Grants")
+        ax.set_ylabel("Total Participations")
         ax.set_title("Received Grants vs. Total Participations")
         #Display the graph
         st.pyplot(fig)
@@ -163,6 +163,6 @@ if confidentiality_agreement:
         ax.set_xscale("log")
         ax.set_ylabel("Total Participations (log scale)")
         ax.set_yscale("log")
-        ax.set_title("Received Grants vs. Total Participations")
+        ax.set_title("Received Grants vs. Total Participations (log scale)")
         #Display the graph
         st.pyplot(fig)
