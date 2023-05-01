@@ -140,3 +140,6 @@ if confidentiality_agreement:
 
     second_button = Button(data = csv_df_participants_coordinators, file_name = f'coordinators_from_{countries_dictionary[country]}.csv')
     second_button.display_button()
+    
+    with st.sidebar:
+        st.write("Stats")
