@@ -147,6 +147,9 @@ if confidentiality_agreement:
     with st.sidebar:
         st.write("Participants related graphs")
         
+        corr_coef = np.corrcoef(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])[0][1]
+        st.write(f"Correlation coefficient: {corr_coef:.2f}")
+        
         # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants (NOT LOG SCALE)
         fig, ax = plt.subplots()
         ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
