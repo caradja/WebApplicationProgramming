@@ -66,17 +66,17 @@ participants = pd.read_sql(f"SELECT * FROM participants", conn)
 
 conn.close()
 
-# The dictionary mentioned above
-countries_dictionary = countries.set_index('Country')['Acronym'].to_dict()
 
-# The acronyms will be shown alphabetically to the user in a drop-down menu
-country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
+with st.beta_expander("Filters"):
+    # The dictionary mentioned above
+    countries_dictionary = countries.set_index('Country')['Acronym'].to_dict()
+    # The acronyms will be shown alphabetically to the user in a drop-down menu
+    country = st.selectbox('Choose a country', sorted(countries_dictionary.keys()))
 
-
-
-activity_type_column = participants["activityType"]
-
-activity_type = st.radio('Choose an activity type', activity_type_column.unique())
+    # The activities
+    activity_type_column = participants["activityType"]
+    # The unique activities
+    activity_type = st.radio('Choose an activity type', activity_type_column.unique())
 
 
 # 4. Show the user the country that has been selected
