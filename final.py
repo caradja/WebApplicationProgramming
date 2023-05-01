@@ -60,7 +60,7 @@ CONFIDENTIALITY_AGREEMENT = confidentiality_agreement
 if CONFIDENTIALITY_AGREEMENT:
     
     # Make the confidentiality agreement checkbox disappear from the screen after the user agrees
-    confidentiality_agreement = None
+    del confidentiality_agreement
 
     # 3. Selecting the country acronym
 
