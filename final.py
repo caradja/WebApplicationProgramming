@@ -45,7 +45,11 @@ container.markdown(
     </style>
     """,
     unsafe_allow_html=True,
-)        
+)
+
+# 2. Adding the title of the app
+st.markdown(f"<h1 style = 'color:#307be8;'>Partner search app</h1>", unsafe_allow_html = True)
+#st.title("Partner search app")
         
 
 confidentiality_agreement = st.checkbox("I understand that the session is confidential & I am not allowed to share the data with unauthorized people")
@@ -53,13 +57,8 @@ confidentiality_agreement = st.checkbox("I understand that the session is confid
 # The content will not be visible to the user unless they agree with the confidentiality agreement
 if confidentiality_agreement:
     
-    st.empty()
-    
-    # 2. Adding the title of the app
-    st.markdown(f"<h1 style = 'color:#307be8;'>Partner search app</h1>", unsafe_allow_html = True)
-    #st.title("Partner search app")
-
-
+    # Make the confidentiality agreement checkbox disappear from the screen after the user agrees
+    confidentiality_agreement.empty()
 
     # 3. Selecting the country acronym
 
