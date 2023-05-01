@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 from PIL import Image
 
 
@@ -160,7 +161,8 @@ if confidentiality_agreement:
             ax.set_title("Received Grants vs. Total Participations")
             #Display the graph
             st.pyplot(fig)
-
+            
+            """
             # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants (LOG SCALE)
             fig, ax = plt.subplots()
             ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
@@ -170,6 +172,16 @@ if confidentiality_agreement:
             ax.set_yscale("log")
             ax.set_title("Received Grants vs. Total Participations (log scale)")
             #Display the graph
+            st.pyplot(fig)
+            """
+            
+            # Generate a violin boxplot to see the underlying distribution of the data as well
+            
+            fig, ax = plt.subplots()
+            sns.violinplot(data = df_participants[['ReceivedGrants', 'TotalParticipations']], ax = ax)
+            plt.title("Received Grants vs. Total Participations")
+            plt.xlabel("Received Grants")
+            plt.ylable("Total Participations")
             st.pyplot(fig)
         
         else:
