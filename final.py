@@ -180,6 +180,11 @@ if confidentiality_agreement:
             fig2, ax2 = plt.subplots()
             sns.violinplot(data = df_participants, x = 'ReceivedGrants')
             st.pyplot(fig2)
+            
+            fig3, ax3 = plt.subplots()
+            sns.violinplot(data = df_participants, x = 'TotalParticipants')
+            ax3.violinplot(facecolor = 'red')
+            st.pyplot(fig3)
         
         else:
             st.write("No data available")
