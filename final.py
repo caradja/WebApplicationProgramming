@@ -147,7 +147,7 @@ if confidentiality_agreement:
     with st.sidebar:
         st.write("Stats participants")
         # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants
-        fix, ax = plt.subplots()
+        fig, ax = plt.subplots()
         ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
         ax.set_xlabel("Received Grants")
         ax.set_ylabel("Total Participations")
