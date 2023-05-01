@@ -53,12 +53,14 @@ st.markdown(f"<h1 style = 'color:#307be8;'>Partner search app</h1>", unsafe_allo
         
 
 confidentiality_agreement = st.checkbox("I understand that the session is confidential & I am not allowed to share the data with unauthorized people")
+# Fixed value -- should not be changed.
+CONFIDENTIALITY_AGREEMENT = confidentiality_agreement
 
 # The content will not be visible to the user unless they agree with the confidentiality agreement
-if confidentiality_agreement:
+if CONFIDENTIALITY_AGREEMENT:
     
     # Make the confidentiality agreement checkbox disappear from the screen after the user agrees
-    confidentiality_agreement.empty()
+    confidentiality_agreement = None
 
     # 3. Selecting the country acronym
 
