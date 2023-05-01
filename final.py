@@ -162,19 +162,6 @@ if confidentiality_agreement:
             #Display the graph
             st.pyplot(fig)
             
-            """
-            # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants (LOG SCALE)
-            fig, ax = plt.subplots()
-            ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
-            ax.set_xlabel("Received Grants (log scale)")
-            ax.set_xscale("log")
-            ax.set_ylabel("Total Participations (log scale)")
-            ax.set_yscale("log")
-            ax.set_title("Received Grants vs. Total Participations (log scale)")
-            #Display the graph
-            st.pyplot(fig)
-            """
-            
             # Generate a violin boxplot to see the underlying distribution of the data as well
             
             fig2, ax2 = plt.subplots()
@@ -182,8 +169,7 @@ if confidentiality_agreement:
             st.pyplot(fig2)
             
             fig3, ax3 = plt.subplots()
-            sns.violinplot(data = df_participants, x = 'TotalParticipants')
-            ax3.violinplot(facecolor = 'red')
+            sns.violinplot(data = df_participants, x = 'TotalParticipants', color = 'red')
             st.pyplot(fig3)
         
         else:
