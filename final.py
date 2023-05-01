@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 from PIL import Image
 
 
@@ -141,5 +142,15 @@ if confidentiality_agreement:
     second_button = Button(data = csv_df_participants_coordinators, file_name = f'coordinators_from_{countries_dictionary[country]}.csv')
     second_button.display_button()
     
+    
+    # The side bar after all data is extracted
     with st.sidebar:
-        st.write("Stats")
+        st.write("Stats participants")
+        # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants
+        fix, ax = plt.subplots()
+        ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
+        ax.set_xlabel("Received Grants")
+        ax.set_ylabel("Total Participations")
+        ax.set_title("Received Grants vs. Total Participations")
+        #Display the graph
+        st.pyplot(fig)
