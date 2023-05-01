@@ -20,38 +20,37 @@ class Button:
                    data = self.data,
                    mime = 'text/csv')
         
+# 1. Adding the logo of the application
+logo = Image.open('logo.png')
+
+# In order to center the logo, the following process will be applied:
+container = st.beta_container()
+
+with container:
+    col1, col2, col3 = st.beta_columns(3)
+    col2.image(logo, width=250)
+    col1.empty()
+    col3.empty()
+
+# CSS is needed in this case, otherwise the logo will be centered but will also appear really big
+# This solution allows us to preserve the original ratio of the image while also centering it
+container.markdown(
+    f"""
+    <style>
+    .element-container:nth-child(3) {{
+        display: flex;
+        justify-content: center;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)        
+        
 
 confidentiality_agreement = st.checkbox("I understand that the session is confidential & I am not allowed to share the data with unauthorized people")
 
 # The content will not be visible to the user unless they agree with the confidentiality agreement
 if confidentiality_agreement:
-    
-    # 1. Adding the logo of the application
-    logo = Image.open('logo.png')
-
-    # In order to center the logo, the following process will be applied:
-    container = st.beta_container()
-
-    with container:
-        col1, col2, col3 = st.beta_columns(3)
-        col2.image(logo, width=250)
-        col1.empty()
-        col3.empty()
-
-    # CSS is needed in this case, otherwise the logo will be centered but will also appear really big
-    # This solution allows us to preserve the original ratio of the image while also centering it
-    container.markdown(
-        f"""
-        <style>
-        .element-container:nth-child(3) {{
-            display: flex;
-            justify-content: center;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
 
     # 2. Adding the title of the app
     st.markdown(f"<h1 style = 'color:#307be8;'>Partner search app</h1>", unsafe_allow_html = True)
