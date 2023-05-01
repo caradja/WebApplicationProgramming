@@ -149,8 +149,10 @@ if confidentiality_agreement:
         # Generate a scatterplot between the ReceivedGrants and TotalParticipations of Participants
         fig, ax = plt.subplots()
         ax.scatter(df_participants["ReceivedGrants"], df_participants["TotalParticipations"])
-        ax.set_xlabel("Received Grants")
-        ax.set_ylabel("Total Participations")
+        ax.set_xlabel("Received Grants (log scale)")
+        ax.set_xscale("log")
+        ax.set_ylabel("Total Participations (log scale)")
+        ax.set_yscale("log")
         ax.set_title("Received Grants vs. Total Participations")
         #Display the graph
         st.pyplot(fig)
