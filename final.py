@@ -52,7 +52,6 @@ container.markdown(
 
 # 2. Adding the title of the app
 st.markdown(f"<h1 style = 'color:#307be8;'>Partner search app</h1>", unsafe_allow_html = True)
-#st.title("Partner search app")
         
 
 confidentiality_agreement = st.checkbox("I understand that the session is confidential & I am not to share data with unauthorized people")
