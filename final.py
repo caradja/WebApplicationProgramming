@@ -174,6 +174,3 @@ if confidentiality_agreement:
             ax3.set_xlim(0, None)
             ax3.set_title("Violinplot for Total Participations")
             st.pyplot(fig3)
-        
-        else:
-            st.write("No data available")
